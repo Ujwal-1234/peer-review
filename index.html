@@ -1,0 +1,227 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/tailwind.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>Authentication</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="data_onload();">
+        <div class="error" style="color:red; text-align:center; display:none;" id="error">Not loggedin..</div>
+        <section id="idlogin" class="w-full h-full flex justify-center items-center bg-[#F4F7FF] py-20 lg:py-[120px]">
+            <div class="container">
+            <div class="-mx-4 flex flex-wrap">
+                <div class="w-full px-4 ">
+                <div
+                    class="w-full bg-white p-4 text-center leading-loose items-center lg:ml-auto lg:mr-auto lg:w-1/3"
+                >
+                    <form>
+                        <div class="mb-6">
+                            <input
+                            required
+                            id="_emailinput"
+                            type="text"
+                            name="email"
+                            value="19btrse035@jainuniversity.ac.in"
+                            placeholder="Email"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        <div class="mb-6">
+                            <input
+                            required
+                            name="pass"
+                            id="_passinput"
+                            type="password"
+                            value="123"
+                            placeholder="Password"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        <div class="mb-10">
+                            <input
+                            id="_buttonsignin"
+                            required
+                            type="submit"
+                            value="Sign In"
+                            class="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition hover:bg-opacity-90"
+                            />
+                        </div>
+                    </form>
+                    <!-- <a
+                    href="javascript:void(0)"
+                    class="mb-2 block text-base text-[#adadad] hover:text-primary hover:underline"
+                    onclick="_forgot_pass();"
+                    >
+                    Forget Password?
+                    </a> -->
+                    New Here ?
+                    <a
+                    onclick="_signup();"
+                    href="javascript:void(0)"
+                    class="mb-2 inline-block text-base text-[#adadad] hover:text-primary hover:underline"
+                    >
+                    Register
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="idsignup" class="bg-[#F4F7FF] py-20 lg:py-[120px]">
+            <div class="container">
+            <div class="-mx-4 flex flex-wrap">
+                <div class="w-full px-4">
+                <div
+                    class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-16 px-10 text-center sm:px-12 md:px-[60px]"
+                >
+                    <form action="php/register_user.php" method="POST">
+                        <div class="mb-6">
+                            <input
+                            required
+                            id="_nameinput"
+                            type="text"
+                            name="fullname"
+                            value="UJWAL KUMAR MAHATO"
+                            placeholder="Full Name"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        <div class="mb-6">
+                            <input
+                            required
+                            id="_emailinput"
+                            type="text"
+                            name="email"
+                            value="19btrse035@jainuniversity.ac.in"
+                            placeholder="Email"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        
+                        <div class="mb-6">
+                            <input
+                            required
+                            onkeydown="_autocomplete();"
+                            name="_contact"
+                            id="_contact"
+                            type="text"
+                            placeholder="Phone"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        
+                        <div class="mb-6">
+                            <input
+                            required
+                            name="pass"
+                            id="_passinput"
+                            type="password"
+                            value="123"
+                            placeholder="Password"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        <div class="mb-6">
+                            <input
+                            required
+                            name="cpass"
+                            id="_cpassinput"
+                            type="password"
+                            value="123"
+                            placeholder="Confirm Password"
+                            class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
+                            />
+                        </div>
+                        
+                        <div class="mb-8 w-full px-4 md:w-1/2 lg:w-1/3">
+                            <label for="checkboxLabelFive" class="flex cursor-pointer select-none items-center">
+                              <div class="relative">
+                                <input type="radio" onclick="selection('1')" name="usertype" id="checkboxLabelFive" value="F" class="sr-only">
+                                <div class="box mr-4 flex h-5 w-5 items-center justify-center rounded-full border border-primary">
+                                  <span class="h-[10px] w-[10px] rounded-full bg-white">
+                                  </span>
+                                </div>
+                              </div>
+                              Faculty
+                            </label>
+                            <label for="checkboxLabelFour" class="flex cursor-pointer select-none items-center">
+                                <div class="relative">
+                                  <input type="radio" onclick="selection('0')" name="usertype" id="checkboxLabelFour" value="S" class="sr-only">
+                                  <div class="box mr-4 flex h-5 w-5 items-center justify-center rounded-full border border-primary">
+                                    <span class="h-[10px] w-[10px] rounded-full bg-white">
+                                    </span>
+                                  </div>
+                                </div>
+                                Student
+                              </label>
+                            </div>
+                            <div class="mb-8 relative" id="_campus">
+                                <select name="_campus" id="campus" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select Campus..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>
+                            <div class="mb-8 relative" id="_clg_name">
+                                <select name="_clg_name" id="college" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select College Name..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>
+                            <div class="mb-8 relative" id="_sem">
+                                <select name="_sem" id="semester" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select Semester..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>
+
+                            <div class="mb-8 relative" id="_branch">
+                                <select name="_branch" id="branch" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select Branch Name..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>
+                            <div class="mb-8 relative" id="_degree">
+                                <select name="_degree" id="degree" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select Degree ..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>
+                            <div class="mb-8 relative" id="_sec">
+                                <select name="_sec" id="section" class="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                                    <option value="">Select Section ..</option>
+                                </select>
+                                <span class="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                </span>
+                            </div>                          
+                            <div class="mb-10">
+                                <input
+                                id="_buttonreg"
+                                required
+                                type="submit"
+                                value="Register"
+                                class="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition hover:bg-opacity-90"
+                                />
+                            </div>
+                    </form>
+                    Already a member?
+                    <a
+                    onclick="_login();"
+                    href="javascript:void(0)"
+                    class="mb-2 inline-block text-base text-[#adadad] hover:text-primary hover:underline"
+                    >
+                    signin
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <script src="script/autoinput.js"></script>
+        <script src="script/login.js"></script>
+    </body>
+</html>

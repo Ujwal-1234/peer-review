@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link href="assets/css/tailwind.css" rel="stylesheet">
+        <title>Rank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body class="flex lg:block bg-dark bg-opacity-20 justify-center items-center">
+        <div class="w-full lg:w-1/2 lg:ml-auto lg:mr-auto p-6 rounded-2xl text-center bg-opacity-70 bg-secondary">
+
+            <div class="mb-12">
+                <label for="" class="mb-3 block text-base font-medium text-dark">
+                    Enter OTP sent to <br><b>Registered Email</b>
+                </label>
+                <input type="text" placeholder="OTP" id="otpvalue" class=" rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+            </div>
+            <a href="#" onclick="verify_otp(document.getElementById('otpvalue').value);" class="inline-flex items-center justify-center rounded-md border border-white py-4 px-10 text-center text-base text-white transition hover:border-primary hover:bg-primary hover:text-white lg:px-8 xl:px-10">
+                Verify
+            </a>
+            <p id="status"></p>
+        </div>
+        <script src="script/verify.js"></script>
+    </body>
+</html>

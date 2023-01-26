@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <link href="assets/css/tailwind.css" rel="stylesheet">
+        <title>Rank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+      <div class="text-center bg-primary text-white text-4xl">
+        <h1 style="font-family: Courier new, monospace;">MIND MANAGEMENT & HUMAN VALUES</h1>
+      </div>
+      <div id="rtnmsg" style="text-align:center;color: red; background-color:antiquewhite;"></div>
+      <div style="max-width: 400px;position:absolute; right:0px">
+        
+        <a
+        id="admin"
+        style="display: none;"
+        href="dashboard.html"
+        class="inline-block shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+        >
+        Admin
+      </a>
+        <a
+          href="php/logout.php";
+          href="javascript:void(0)"
+          class="inline-block shadow-md bg-white rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+          >
+          logout
+        </a>
+      </div>
+    <!-- ====== Table Section Start -->
+    <section class="bg-primary bg-opacity-20 px-2 lg:px-10">
+      Semester : <span id="sem" class="bg-white px-2"></span><br>
+      Team Number : <span id="teamno" class="bg-white px-2"></span><br>
+      Course&Sec : <span id="course" class="bg-white px-2"></span><br>
+      Time to Submit : <span id="timetosubmit" class="bg-white px-2"></span><br>
+      <!-- Date :<span id="_remaining" class="bg-white px-2"></span><br> -->
+      Student Name : <span id="_user_name" class="bg-white px-2"></span><br>
+      Email Logged in : <span id='_logged_email' class="bg-white px-2"></span><br>
+    </section>
+    <section class="bg-white py-20 lg:py-[120px]">
+        <div class="container">
+          <div class="-mx-4 flex flex-wrap">
+            <div class="w-full px-4">
+              <div class="overflow-x-auto">
+                  <form action="#">
+
+                    <table class="w-full table-auto">
+                      <thead>
+                        <tr class="bg-primary text-center">
+                          <th
+                          class="w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                          >
+                          SlNo
+                        </th>
+                        <th
+                        class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                        >
+                        Name of Teammates
+                        </th>
+                        <th
+                        class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                        >
+                          Rank
+                        </th>
+                        <!-- <th
+                        class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                        >
+                          Remarks
+                        </th> -->
+                        
+                      </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    </tbody>
+                  </table>
+                  <a
+                  id="_submit_button"
+                  href="javascript:void(0)"
+                  class="inline-block shadow-md lg:w-auto fixed text-center w-[90%] rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                  >
+                  Submit
+                </a>
+                  <!-- <a
+                    href="table2.html"
+                    class="inline-flex items-center justify-center rounded-full bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                    >
+                    Overall
+                  </a> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script src="script/table.js"></script>
+    </body>
+</html>

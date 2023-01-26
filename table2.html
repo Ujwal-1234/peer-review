@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary</title>
+    <!-- <link
+      rel="shortcut icon"
+      href="assets/images/favicon.svg"
+      type="image/x-icon"
+    /> -->
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <div class="fixed w-full text-center bg-white top-0 hidden" id="notify">
+      data
+    </div>
+    <div class="text-center bg-primary text-white text-4xl">
+      <h1 style="font-family: Courier new, monospace;">MIND MANAGEMENT & HUMAN VALUES</h1>
+    </div>
+    <div class="hidden lg:block" style="width: 200px auto;position:absolute; right:0px">
+      <a
+        href="dashboard.html";
+        href="javascript:void(0)"
+        class="shadow-md mx-1 rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+        >
+        Home
+      </a>
+      <a
+        href="#";
+        id="reset_team"
+        href="javascript:void(0)"
+        class="shadow-md mx-1 rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+        >
+        Reset All
+      </a>  
+      <a
+          href="php/logout.php";
+          href="javascript:void(0)"
+          class="shadow-md mx-1 rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+          >
+          logout
+      </a>
+    </div>
+    <div class="m-2 flex justify-center">
+      <label for="_teamno">
+        Team Number : 
+        <input class="w-1/3 text-center border" value="1" placeholder="Enter Team Number" id="_teamno" type="text">
+      </label>
+      <a
+          href="#";
+          href="javascript:void(0)"
+          onclick="reset_table();get_overall(document.getElementById('_teamno').value);"
+          class="inline rounded-full bg-primary py-1 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+          >
+          Submit
+      </a>
+    </div>
+    <!-- ====== Table Section Start -->
+    <section class="bg-white py-20 lg:py-[120px]">
+      <div class="container">
+        <div class="-mx-4 flex flex-wrap">
+          <div class="w-full px-4">
+            <div class="max-w-full overflow-x-auto">
+              <table class="w-full table-auto">
+                <thead id="thead">
+                  <tr class="bg-primary text-center" id="head">
+                    <th
+                        colspan="2"
+                      class="w-1/6 min-w-[160px] border-r-2 py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      Student's Name
+                    </th>
+                    <th
+                        colspan="10"
+                      class="w-1/6 min-w-[160px] py-4 border-r-2 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      Who Rank
+                    </th>
+                    <th
+                      class="w-1/6 min-w-[160px] py-4 border-r-2 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      Total
+                    </th>
+                    <th
+                      class="w-1/6 min-w-[160px] py-4 px-3 border-r-2 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      Rank
+                    </th>
+                    <th
+                      class="w-1/6 min-w-[160px] py-4 px-3 text-lg border-r-2 font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      Marks
+                    </th>
+                  </tr>
+                  <tr class="bg-black text-white" id="sub-head">
+                      <th class="text-center border-r-2 p-3">    </th>
+                      <th class="text-center border-r-2 p-3">    </th>
+                      <th class="text-center border-r-2 p-3">Person_1</th>
+                      <th class="text-center border-r-2 p-3">Person_2</th>
+                      <th class="text-center border-r-2 p-3">Person_3</th>
+                      <th class="text-center border-r-2 p-3">Person_4</th>
+                      <th class="text-center border-r-2 p-3">Person_5</th>
+                      <th class="text-center border-r-2 p-3">Person_6</th>
+                      <th class="text-center border-r-2 p-3">Person_7</th>
+                      <th class="text-center border-r-2 p-3">Person_8</th>
+                      <th class="text-center border-r-2 p-3">Person_9</th>
+                      <th class="text-center border-r-2 p-3">Person_10</th>
+                      <th class="text-center border-r-2 p-3"></th>
+                      <th class="text-center border-r-2 p-3"></th>
+                      <th class="text-center border-r-2 p-3"></th>
+  
+  
+                  </tr>
+                </thead>
+                <tbody id="table-data">
+                    
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-dark p-4 flex justify-center lg:hidden">
+      <a
+        href="php/logout.php";
+        href="javascript:void(0)"
+        class="shadow-md mx-1 rounded border border-white py-2 px-6 text-white hover:bg-primary hover:text-white"
+        >
+        logout
+      </a>
+      <a
+        href="dashboard.html";
+        href="javascript:void(0)"
+        class="shadow-md mx-1 rounded border border-white py-2 px-6 text-white hover:bg-primary hover:text-white"
+        >
+        Home
+      </a>
+      <a
+        href="#";
+        id="reset_team"
+        href="javascript:void(0)"
+        class="shadow-md mx-1 rounded border border-white py-2 px-6 text-white hover:bg-primary hover:text-white"
+        >
+        Reset All
+      </a>
+    </section>
+    <!-- ====== Table Section End -->
+    <script src="script/overall.js"></script>
+  </body>
+</html>

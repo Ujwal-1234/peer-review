@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Space</title>
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+  <body onload="filter(); admin_check();">
+    <section>
+
+      <div class="text-center bg-primary text-white lg:text-4xl lg:fixed w-full">
+        <h1 class="text-primary lg:text-white" style="font-family: Courier new, monospace;">MIND MANAGEMENT & HUMAN VALUES</h1>
+      </div>
+      <div class="fixed w-full text-center bg-white top-0 hidden" id="notify">
+        data
+      </div>
+          <div style="width: 400px auto;position:absolute; right:0px" class="">
+              <!-- <a
+                href="#refresh"
+                onclick="refresh();"
+                class="inline-flex items-center justify-center rounded-full bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                >
+                Refresh
+              </a> -->
+              <a
+                href="#"
+                onclick="_report_download();"
+                class="inline-block bg-light shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                >
+                Get Report
+              </a>
+              <a
+                href="table2.html"
+                class="inline-block bg-light shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                >
+                Overall
+              </a>
+              <a
+                href="php/logout.php";
+                href="javascript:void(0)"
+                class="inline-block bg-light shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                >
+                logout
+              </a>
+              
+          </div>
+          <div class="lg:flex">
+            <div class="w-full bg-primary bg-opacity-20 p-3">
+                <div class="mb-12 m-10 ">
+                  <label for="" class="mb-3 text-base font-medium text-black">
+                    Team Number
+                  </label>
+                  <input
+                    type="text"
+                    id="teamno"
+                    placeholder="Enter Team number"
+                    class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                    />
+                    
+                    <label for="" class="mb-3 text-base font-medium text-black">
+                        Set Deadline
+                    </label>
+                    <input
+                    id="_time_limit"
+                    type="date"
+                    class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                  />
+                  <label for="teamlead" class="mb-3 text-base font-medium text-black">
+                    Enter Email Id of Team Leader
+                  </label>
+                  <input
+                    onkeypress="_admin_autocomplete();"
+                    type="text"
+                    id="teamlead"
+                    placeholder="Team Leader email id"
+                    class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                    />
+                </div>
+            </div>
+  
+            <div class="w-full  lg:mt-20 px-4 py-4 bg-primary bg-opacity-25 ">
+              <label class="text-3xl font-bold">FILTER : </label>
+              <div class="mb-8" id="_campus">
+                <select name="_campus" id="campus" class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                    <option value="">Select Campus..</option>
+                </select>
+              </div>
+              <div class="mb-8" id="_branch">
+                <select name="_branch" id="branch" class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                    <option value="null">Select Branch Name..</option>
+                </select>
+              </div>
+              <div class="mb-8" id="_sec">
+                <select name="_sec" id="section" class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                    <option value="null">Select Section ..</option>
+                </select>
+              </div>  
+              <div class="mb-8" id="_clg_name">
+                <select name="_clg_name" id="college" class="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+                    <option value="null">Select College Name..</option>
+                </select>
+              </div>
+              <a
+                  id="filter"
+                  onclick="this.style.display='none'; console.log(document.getElementById('college').value);_filter(document.getElementById('college').value, document.getElementById('section').value, document.getElementById('campus').value, document.getElementById('branch').value)"
+                  class="cursor-pointer inline-block shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                  >
+                  Apply Filter
+              </a>
+            </div>
+          </div>
+    </section>
+
+
+        <section class=" lg:flex items-center w-full bg-primary bg-opacity-5 h-full p-10">
+          <label for="" class="mb-3 block text-base text-center bg-secondary rounded-2xl bg-opacity-30 font-medium text-black">
+            TEAM FORMATION
+          </label>
+          <div class="bg-warning bg-opacity-90 lg:w-1/2" id="_data">
+            <!-- <p class="m-2  p-3 rounded" id="data0"><input type="text" id="datavalue0" value="UJWAL " disabled="" class="lg:w-1/2 w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"><input type="text" id="emailvalue0" value="kujwal147@gmail.com" disabled="" hidden="" class="lg:w-1/2 w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"><input value="Add" onclick="_add('data0','datavalue0','emailvalue0');" class="lg:w-auto w-full inline cursor-pointer text-center shadow-md rounded border border-primary text-primary hover:bg-primary hover:text-white"></p>
+            <p class="m-2  p-3 rounded " id="data0"><input type="text" id="datavalue0" value="UJWAL " disabled="" class="lg:w-1/2 w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"><input type="text" id="emailvalue0" value="kujwal147@gmail.com" disabled="" hidden="" class="lg:w-1/2 w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"><input value="Add" onclick="_add('data0','datavalue0','emailvalue0');" class="lg:w-auto w-full inline cursor-pointer text-center shadow-md rounded border border-primary text-primary hover:bg-primary hover:text-white"></p> -->
+          </div>
+          <div class="bg-success lg:w-1/2 bg-light" id="_createdata">
+            <!-- <p class="m-2">
+              <input type="text" placeholder="Disabled Input" disabled="" class="w-1/2 rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]">
+              <input value="remove" class="cursor-pointer text-center ml-2 w-1/6 inline-block shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white">
+            </p> -->
+            <!-- <p class="text-center" id="rmdata0">
+              <span class="text-3xl" id="rmdata0-data"> Received data</span>
+              <span onclick="_remove_member('rmdata0')" class="m-2 flex-wrap bg-danger  rounded material-symbols-outlined cursor-pointer">close</span>
+            </p> -->
+          </div>
+          <a
+            id="create_team_filter"
+            onclick=""
+            class="cursor-pointer w-full text-center lg:w-unset inline-block shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+            >
+            SUBMIT
+          </a>
+        </section>
+    <!-- ====== Table Section Start -->
+    <!-- <section class="bg-white py-20 lg:py-[120px]">
+      <div class="container">
+          <div class="-mx-4 flex flex-wrap">
+          <div class="w-full">
+              <div class="w-full overflow-x-auto">
+                  <table class="w-full table-auto">
+                      <thead>
+                          <tr class="bg-primary text-center">
+                              <th
+                      class="w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                      >
+                      Student Name
+                    </th>
+                    <th
+                    class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                    Email Id
+                    </th>
+                    <th
+                      class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4"
+                    >
+                      <button type="submit" onclick="call_api()" class="bg-black pl-2 pr-2 rounded-lg">ADD</button>
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody id="table_data">
+                  <tr id="row0">
+                      <td
+                      class="border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark"
+                      >
+                      <input
+                        required
+                        type="text"
+                        id="student0"
+                        onkeyup="_admin_autocomplete('.inpu');"
+                        placeholder="Student Name"
+                        class="inpu w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                        />
+                      </td>
+                      <td
+                      class="border-b border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark"
+                      >
+                      <input
+                        required
+                        id="email0"
+                        onkeyup="_admin_autocomplete('.einpu');"
+                        type="text"
+                        placeholder="Student Email"
+                        class="einpu w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                      />
+                        </td>
+                    <td
+                    class="border-b border-r border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark"
+                    >
+                    <a
+                        onclick="remove_row('row0')"
+                        href="javascript:void(0)"
+                        class="inline-block rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                      >
+                      Remove
+                      </a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <a
+                id="_submit_button"
+                href="javascript:void(0)"
+                class="inline-block shadow-md rounded border border-primary py-2 px-6 text-primary hover:bg-primary hover:text-white"
+                >
+                Submit
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+</section> -->
+    <script>
+      // function _add_member(id){
+      //   console.log(document.getElementById(id))
+      //   // console.log("#_data "+id+"")
+      //   document.getElementById('_createdata').innerHTML+='<p class="text-center" id="'+id+'">'+
+      //           '<span class="text-3xl ">'+document.getElementById(id+"-data").innerText+'</span>'+
+      //           '<span onclick="_remove_member('+"'rmdata0'"+')" class="m-2 flex-wrap bg-danger  rounded material-symbols-outlined cursor-pointer">close</span>'+
+      //         '</p>';
+      //   document.getElementById(id).remove()
+      // }
+      // function _remove_member(id){
+        
+      //   document.getElementById('_data').innerHTML+='<p class="text-center" id="data0">'+
+      //             '<span class="text-3xl" id="data0-data"> '+document.getElementById(id+"-data").innerText+' </span>'+
+      //             '<span onclick="_add_member('+"'data0'"+')" class="m-2 flex-wrap bg-secondary  rounded material-symbols-outlined cursor-pointer">add</span>'+
+      //           '</p>';
+      //   document.getElementById(id).remove();
+      // }
+    </script>
+    <!-- ====== Table Section End -->
+    <script src="script/create_team.js"></script>
+    <script src="script/addrow.js"></script>
+    <script src="script/autoinput.js"></script>
+    <script src="script/filter.js"></script>
+    <!-- <script src="script/overall.js"></script> -->
+</body>
+</html>
+  
